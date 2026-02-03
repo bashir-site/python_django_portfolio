@@ -13,8 +13,14 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- ОПТИМИЗАЦИЯ: Preload критических CSS -->
+  <link rel="preload" href="assets/vendor/bootstrap/css/bootstrap.min.css" as="style">
+  <link rel="preload" href="assets/css/style.css" as="style">
+
+  <!-- Google Fonts - ОПТИМИЗАЦИЯ: Preconnect для ускорения загрузки -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -46,7 +52,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/profile-img2.JPG" alt="" class="img-fluid rounded-circle">
+        <img src="assets/img/profile-img2.JPG" alt="" class="img-fluid rounded-circle" loading="eager">
         <h1 class="text-light"><a href="index.html">Башир</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://wa.me/79998227183" class="twitter"><i class="bx bxl-whatsapp"></i></a>
@@ -88,7 +94,7 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img2.JPG" class="img-fluid" alt="">
+            <img src="assets/img/profile-img2.JPG" class="img-fluid" alt="" loading="lazy">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>Python разработчик &amp; Веб разработчик.</h3>
@@ -309,7 +315,7 @@
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/edu.png" class="img-fluid" alt="" style="height: 220px;">
+              <img src="assets/img/portfolio/edu.png" class="img-fluid" alt="" style="height: 220px;" loading="lazy">
               <div class="portfolio-links">
                 <a href="https://github.com/bashir-site/edu" title="View code" target="_blank">
                   <i class="bx bxl-github"></i>
@@ -323,7 +329,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/twiter_clone.png" class="img-fluid" alt="" style="height: 220px;">
+              <img src="assets/img/portfolio/twiter_clone.png" class="img-fluid" alt="" style="height: 220px;" loading="lazy">
               <div class="portfolio-links">
                 <a href="https://github.com/bashir-site/twiter_clone/" title="View code" target="_blank">
                   <i class="bx bxl-github"></i>
@@ -337,7 +343,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/findjob.png" class="img-fluid" alt="" style="height: 220px;">
+              <img src="assets/img/portfolio/findjob.png" class="img-fluid" alt="" style="height: 220px;" loading="lazy">
               <div class="portfolio-links">
                 <a href="https://github.com/bashir-site/high-paid-job" title="View code" target="_blank" style="width: 100%;">
                   <i class="bx bxl-github"></i>
@@ -356,19 +362,19 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- Vendor JS Files - ОПТИМИЗАЦИЯ: defer для некритических скриптов -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+  <script src="assets/vendor/typed.js/typed.umd.js" defer></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 
 </body>
 
