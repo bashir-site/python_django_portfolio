@@ -284,6 +284,53 @@ h6 {
   border-bottom: 3px solid #149ddd;
 }
 
+#hero .hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+#hero .btn-get-started {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #149ddd;
+  border: 2px solid #149ddd;
+  text-decoration: none;
+}
+
+#hero .btn-get-started:hover {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(20, 157, 221, 0.3);
+}
+
+@media (max-width: 768px) {
+  #hero .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #hero .btn-get-started {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  #hero .btn-get-started.ms-3 {
+    margin-left: 0 !important;
+    margin-top: 10px;
+  }
+}
+
 @media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;
@@ -376,6 +423,44 @@ section {
 
 .about .content p:last-child {
   margin-bottom: 0;
+}
+
+/* Кнопки в секции About */
+.about .btn {
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 10px 24px;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.about .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about .btn-primary {
+  background: #149ddd;
+  color: #fff;
+  border: none;
+}
+
+.about .btn-primary:hover {
+  background: #37b3ed;
+  color: #fff;
+}
+
+.about .btn-outline-primary {
+  background: transparent;
+  color: #149ddd;
+  border: 2px solid #149ddd;
+}
+
+.about .btn-outline-primary:hover {
+  background: #149ddd;
+  color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -615,6 +700,20 @@ section {
   border-left: 1px solid #37b3ed;
 }
 
+/* Стили для коммерческих проектов */
+.portfolio .portfolio-wrap .portfolio-links a[aria-label*="конфиденциально"] {
+  width: 100%;
+  background: rgba(20, 157, 221, 0.85);
+}
+
+.portfolio .portfolio-wrap .portfolio-links a[aria-label*="конфиденциально"]:hover {
+  background: rgba(20, 157, 221, 0.95);
+}
+
+.portfolio .portfolio-wrap .portfolio-links a[aria-label*="конфиденциально"] i {
+  font-size: 24px;
+}
+
 .portfolio .portfolio-wrap:hover::before {
   top: 0;
   left: 0;
@@ -626,6 +725,80 @@ section {
 .portfolio .portfolio-wrap:hover .portfolio-links {
   opacity: 1;
   bottom: 0;
+}
+
+/* Portfolio Info - информация о проекте */
+.portfolio .portfolio-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to bottom, rgba(5, 13, 24, 0.9) 0%, rgba(5, 13, 24, 0.7) 50%, transparent 100%);
+  z-index: 2;
+  opacity: 0;
+  transition: all ease-in-out 0.3s;
+  transform: translateY(-100%);
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio .portfolio-info h4 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-family: "Raleway", sans-serif;
+}
+
+.portfolio .portfolio-info p {
+  color: #f4f6fd;
+  font-size: 14px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.portfolio .portfolio-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.portfolio .portfolio-tech .badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(20, 157, 221, 0.2);
+  color: #149ddd;
+  border: 1px solid rgba(20, 157, 221, 0.3);
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+.portfolio .portfolio-tech .badge:hover {
+  background: rgba(20, 157, 221, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Бейдж для коммерческих проектов */
+.portfolio .portfolio-info h4 .commercial-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
 }
 
 /*--------------------------------------------------------------
@@ -908,6 +1081,74 @@ section {
 
 .contact .info .social-links a:hover {
   background: #149ddd;
+  color: #fff;
+}
+
+.contact .info .social-links a.whatsapp:hover {
+  background: #25D366;
+}
+
+.contact .info .social-links a.telegram:hover {
+  background: #0088cc;
+}
+
+.contact .info .social-links a.github:hover {
+  background: #333;
+}
+
+.contact .info .social-links a.linkedin:hover {
+  background: #0077b5;
+}
+
+/* Кнопки действий */
+.contact .info .btn {
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+}
+
+.contact .info .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact .info .btn-primary {
+  background: #149ddd;
+  border-color: #149ddd;
+}
+
+.contact .info .btn-primary:hover {
+  background: #37b3ed;
+  border-color: #37b3ed;
+}
+
+.contact .info .btn-success {
+  background: #25D366;
+  border-color: #25D366;
+}
+
+.contact .info .btn-info {
+  background: #0088cc;
+  border-color: #0088cc;
+}
+
+.contact .info .btn-dark {
+  background: #333;
+  border-color: #333;
+}
+
+.contact .info .btn-outline-primary {
+  border-color: #149ddd;
+  color: #149ddd;
+}
+
+.contact .info .btn-outline-primary:hover {
+  background: #149ddd;
+  border-color: #149ddd;
   color: #fff;
 }
 

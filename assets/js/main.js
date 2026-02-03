@@ -259,4 +259,30 @@
    */
   new PureCounter();
 
+  /**
+   * Calculate and display age based on birthdate
+   */
+  const calculateAge = () => {
+    // Дата рождения: 25 Мая 1999
+    const birthDate = new Date(1999, 4, 25); // Месяц в JS начинается с 0 (4 = май)
+    const today = new Date();
+    
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    
+    // Если день рождения еще не наступил в этом году, уменьшаем возраст на 1
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    
+    // Обновляем элемент с возрастом
+    const ageElement = document.getElementById('age');
+    if (ageElement) {
+      ageElement.textContent = age;
+    }
+  };
+
+  // Вычисляем возраст при загрузке страницы
+  window.addEventListener('load', calculateAge);
+
 })()
