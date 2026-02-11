@@ -27,18 +27,26 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- ОПТИМИЗАЦИЯ: DNS prefetch для внешних ресурсов -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+  <!-- ОПТИМИЗАЦИЯ: Preload критических изображений -->
+  <link rel="preload" href="assets/img/profile-img2.JPG" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/img/hero-bg5.png" as="image" fetchpriority="high">
+
   <!-- ОПТИМИЗАЦИЯ: Preload критических CSS -->
   <link rel="preload" href="assets/vendor/bootstrap/css/bootstrap.min.css" as="style">
   <link rel="preload" href="assets/css/style.css" as="style">
 
-  <!-- Google Fonts - ОПТИМИЗАЦИЯ: Preconnect для ускорения загрузки -->
+  <!-- Google Fonts - ОПТИМИЗАЦИЯ: Preconnect и font-display swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
@@ -46,6 +54,134 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- КРИТИЧЕСКИЙ CSS для Hero секции - отображается сразу -->
+  <style>
+    /* Hero секция - критический CSS для мгновенного отображения */
+    #hero {
+      width: 100%;
+      height: 100vh;
+      background: url("assets/img/hero-bg5.png") top center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    #hero:before {
+      content: "";
+      background: rgba(5, 13, 24, 0.3);
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+    #hero .hero-container {
+      position: relative;
+      z-index: 2;
+      min-width: 300px;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+    #hero h1 {
+      margin: 0 0 10px 0;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 56px;
+      color: #fff;
+      font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      text-rendering: optimizeSpeed;
+    }
+    #hero p {
+      color: #fff;
+      margin-bottom: 50px;
+      font-size: 26px;
+      font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      opacity: 1 !important;
+      visibility: visible !important;
+      text-rendering: optimizeSpeed;
+    }
+    #hero #typed-text {
+      color: #fff;
+      padding-bottom: 4px;
+      letter-spacing: 1px;
+      border-bottom: 3px solid #149ddd;
+    }
+    #hero p span {
+      color: #fff;
+      padding-bottom: 4px;
+      letter-spacing: 1px;
+      border-bottom: 3px solid #149ddd;
+    }
+    #hero .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+    #hero .btn-get-started {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 1px;
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 4px;
+      transition: 0.5s;
+      color: #fff;
+      background: #149ddd;
+      border: 2px solid #149ddd;
+      text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    #hero .btn-get-started:hover {
+      background: transparent;
+      color: #fff;
+      border-color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(20, 157, 221, 0.3);
+    }
+    @media (max-width: 768px) {
+      #hero h1 {
+        font-size: 28px;
+        line-height: 36px;
+      }
+      #hero p {
+        font-size: 18px;
+      }
+      #hero .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      #hero .btn-get-started {
+        width: 100%;
+        max-width: 250px;
+      }
+      #hero .btn-get-started.ms-3 {
+        margin-left: 0 !important;
+        margin-top: 10px;
+      }
+    }
+    /* Убираем скрытие от AOS для Hero секции */
+    [data-aos="fade-in"],
+    [data-aos="fade-up"] {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+  </style>
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -86,7 +222,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/profile-img2.JPG" alt="Башир Гайтукиев - Python разработчик" class="img-fluid rounded-circle" loading="eager">
+        <img src="assets/img/profile-img2.JPG" alt="Башир Гайтукиев - Python разработчик" class="img-fluid rounded-circle" loading="eager" fetchpriority="high" width="120" height="120">
         <h1 class="text-light"><a href="index.html" aria-label="Главная страница">Башир</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://wa.me/79998227183" class="twitter" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="bx bxl-whatsapp" aria-hidden="true"></i></a>
@@ -111,10 +247,10 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
+    <div class="hero-container">
       <h1>Башир Гайтукиев</h1>
-      <p>Я <span class="typed" data-typed-items="Python разработчик, Веб разработчик, Django специалист, Fullstack разработчик"></span></p>
-      <div class="hero-cta mt-4" data-aos="fade-up" data-aos-delay="200">
+      <p>Я <span id="typed-text">Python разработчик</span><span class="typed" data-typed-items="Python разработчик, Веб разработчик, Django специалист, Fullstack разработчик" style="display:none;"></span></p>
+      <div class="hero-cta mt-4">
         <a href="#about" class="btn-get-started scrollto">Узнать больше</a>
         <a href="#contact" class="btn-get-started scrollto ms-3">Связаться</a>
       </div>
@@ -133,7 +269,7 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img2.JPG" class="img-fluid" alt="Башир Гайтукиев - Python разработчик" loading="lazy">
+            <img src="assets/img/profile-img2.JPG" class="img-fluid" alt="Башир Гайтукиев - Python разработчик" loading="lazy" width="400" height="400">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>Python разработчик &amp; Веб разработчик</h3>
