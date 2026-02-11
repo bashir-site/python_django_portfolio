@@ -2431,8 +2431,8 @@
     closeOnOutsideClick: true,
     plugins: false,
     plyr: {
-      css: 'https://cdn.plyr.io/3.6.12/plyr.css',
-      js: 'https://cdn.plyr.io/3.6.12/plyr.js',
+      css: '../css/plyr.min.css',
+      js: 'plyr.js',
       config: {
         ratio: '16:9',
         fullscreen: {

@@ -200,7 +200,30 @@
    * Initiate portfolio lightbox 
    */
   const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
+    selector: '.portfolio-lightbox',
+    plyr: {
+      css: '../vendor/glightbox/css/plyr.min.css',
+      js: '../vendor/glightbox/js/plyr.js',
+      config: {
+        ratio: '16:9',
+        fullscreen: {
+          enabled: true,
+          iosNative: true
+        },
+        youtube: {
+          noCookie: true,
+          rel: 0,
+          showinfo: 0,
+          iv_load_policy: 3
+        },
+        vimeo: {
+          byline: false,
+          portrait: false,
+          title: false,
+          transparent: false
+        }
+      }
+    }
   });
 
   /**

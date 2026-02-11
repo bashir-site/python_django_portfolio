@@ -8,11 +8,16 @@ const CRITICAL_ASSETS = [
   '/',
   '/index.html',
   '/assets/css/style.css',
+  '/assets/css/fonts.css',
   '/assets/vendor/bootstrap/css/bootstrap.min.css',
   '/assets/vendor/bootstrap-icons/bootstrap-icons.css',
   '/assets/img/profile-img2.JPG',
   '/assets/img/hero-bg5.png',
   '/assets/img/favicon.png',
+  // Локальные шрифты
+  '/assets/fonts/open-sans/Regular.woff2',
+  '/assets/fonts/raleway/Regular.woff2',
+  '/assets/fonts/poppins/Regular.woff2',
 ];
 
 // Установка Service Worker
@@ -60,8 +65,8 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Пропускаем внешние запросы (Google Fonts и т.д.)
-  if (url.origin !== location.origin && !url.href.startsWith('https://fonts.googleapis.com')) {
+  // Пропускаем внешние запросы (только для социальных сетей и внешних API)
+  if (url.origin !== location.origin) {
     return;
   }
 
